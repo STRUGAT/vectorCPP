@@ -113,8 +113,12 @@ public:
 			return *iter;
 		}
 
-		bool operator !=(const iterator& arg) { // оператор !=
-			return !(*this == arg)
+		bool operator !=(const Iterator& arg) { // оператор !=
+			return !(*this == arg);
+		}
+
+		bool operator ==(const Iterator& arg) { // оператор ==
+			return iter == arg.iter;
 		}
 	};
 
@@ -131,6 +135,8 @@ public:
 
 int main()
 {
+	setlocale(LC_ALL, "Russian");
+
 	Vector<int> vector5;
 	cout << "вектор с размером по умолчанию" << endl;
 	for (int i = 0; i < 5; i++)
@@ -144,7 +150,7 @@ int main()
 	for (int i = 0; i < vector5.Lenght(); i++)
 		cout << vector5.Print(i) << " ";
 
-	cout << "оператор =" << endl;
+	cout << endl << "оператор =" << endl;
 	Vector<int> vectorCopy = vector5;
 	for (int i = 0; i < vectorCopy.Lenght(); i++)
 		cout << vectorCopy.Print(i) << " ";
